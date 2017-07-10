@@ -5,12 +5,12 @@
     <data>
         <variable
             name="user"
-            type="com.xcqwan.databinding.model.User"/>
+            type="com.xcqwan.databinding.render.User"/>
     </data>
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.xcqwan.databinding.MainActivity">
+        tools:context="com.xcqwan.databinding.activity.MainActivity">
 
         <TextView
             android:id="@+id/name"
