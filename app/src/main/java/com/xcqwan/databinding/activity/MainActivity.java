@@ -2,20 +2,21 @@ package com.xcqwan.databinding.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.xcqwan.databinding.R;
 import com.xcqwan.databinding.databinding.ActivityMainBinding;
 import com.xcqwan.databinding.presenter.MainPresenter;
 
-public class MainActivity extends AppCompatActivity {
-    private MainPresenter presenter;
+public class MainActivity extends BaseActivity<ActivityMainBinding, MainPresenter> implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.update.setOnClickListener(this);
+
         presenter = new MainPresenter(binding);
         presenter.onCreate();
     }
@@ -36,5 +37,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         presenter.onDestroy();
+    }
+
+    @Override
+    public void onClick(View v) {
+        presenter.update();
     }
 }

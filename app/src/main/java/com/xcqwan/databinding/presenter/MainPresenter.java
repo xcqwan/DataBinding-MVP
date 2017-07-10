@@ -1,15 +1,16 @@
 package com.xcqwan.databinding.presenter;
 
-import android.view.View;
 
 import com.xcqwan.databinding.databinding.ActivityMainBinding;
+import com.xcqwan.databinding.mode.UserInfo;
 import com.xcqwan.databinding.render.User;
 
 /**
  * Created by Thanks on 2017/7/10.
  */
 
-public class MainPresenter extends BasePresenter<ActivityMainBinding> implements View.OnClickListener {
+public class MainPresenter extends BasePresenter<ActivityMainBinding> {
+    private UserInfo userInfo;
 
     public MainPresenter(ActivityMainBinding binding) {
         super(binding);
@@ -20,12 +21,12 @@ public class MainPresenter extends BasePresenter<ActivityMainBinding> implements
         super.onCreate();
         User user = new User("name", 1);
         binding.setUser(user);
-        binding.update.setOnClickListener(this);
+
+        userInfo =  new UserInfo("谢谢", "1980.01.08");
     }
 
-    @Override
-    public void onClick(View v) {
-        binding.getUser().name.set(binding.getUser().name.get() + "~");
-        binding.getUser().age.set(binding.getUser().age.get() + 1);
+    public void  update() {
+        binding.getUser().name.set(userInfo.name);
+        binding.getUser().age.set(userInfo.getAge());
     }
 }
