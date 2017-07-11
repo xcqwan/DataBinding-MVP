@@ -21,6 +21,7 @@ public class MainPresenter extends BasePresenter<ActivityMainBinding> {
         super.onCreate();
         User user = new User("name", 1);
         binding.setUser(user);
+        binding.setHello("你好");
 
         userInfo =  new UserInfo("谢谢", "1980.01.08");
     }

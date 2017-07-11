@@ -6,11 +6,22 @@
         <variable
             name="user"
             type="com.xcqwan.databinding.render.User"/>
+        <variable
+            name="hello"
+            type="String"/>
     </data>
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.xcqwan.databinding.activity.MainActivity">
+
+        <TextView
+            android:id="@+id/hello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{hello, default=PLACEHOLDER}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <TextView
             android:id="@+id/name"
